@@ -34,9 +34,7 @@ class MyAdapter(
 
     override fun onBindViewHolder(holder: MyViewHold, position: Int) {
         val item = list[position]
-        if (authentication.uid != item.authId) {
-            holder.nameTV.text = item.userName
-        }
+        holder.nameTV.text = item.userName
 
         holder.itemView.setOnClickListener {
             val i = Intent(Intent(context, ConversationActivity::class.java))

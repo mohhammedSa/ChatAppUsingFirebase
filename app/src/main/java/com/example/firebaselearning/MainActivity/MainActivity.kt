@@ -60,7 +60,8 @@ class MainActivity : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (n in snapshot.children) {
                     val userInfo = n.getValue(UserDataClass::class.java)
-                    usersList.add(userInfo!!)
+                    if (userInfo?.authId != authentication.uid)
+                        usersList.add(userInfo!!)
                 }
                 recyclerviewHandler()
             }
